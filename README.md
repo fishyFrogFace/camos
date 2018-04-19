@@ -52,6 +52,3 @@ qemu-system-i386 -fda bootloader.flp
 ### Start having fun
 You will now be welcomed into your shiny, new OS. Camos supports typing characters from your keyboard infinitely many times. If you make a typo, just press enter for a fresh start! Type 'q' to quit typing.
 
-## Acknowledgments
-
-* .flp file shamelessly stolen from the [MikeOS project](http://mikeos.sourceforge.net/)
