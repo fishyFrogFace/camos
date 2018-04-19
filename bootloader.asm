@@ -13,9 +13,8 @@ start:
     mov si, welcome        ; Put string position into SI
     call print_string      ; Call our string-printing routine
     call input_char
-
+    
     jmp $                  ; Jump here
-
 
     welcome db 'Welcome to my new OS. You can write something here: ', 0dh, 0ah, 0
     goodbye db 0dh, 0ah, 'Goodbye. Hope you liked my OS!', 0

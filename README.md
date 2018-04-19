@@ -8,12 +8,12 @@ To get this operating system up and running, you need to follow the steps here. 
 
 ### Prerequisites
 
-Install Nasm to be able to compile the project. This is needed regardless of where you would like to run the OS.
+Install Nasm to be able to assemble the project. This is needed regardless of where you would like to run the OS.
 
 ```
 sudo apt-get install build-essential nasm
 ```
-Navigate to the folder the bootloader is in and compile it
+Navigate to the folder the bootloader is in and assemble it
 
 ```
 nasm -f bin -o bootloader.bin bootloader.asm
