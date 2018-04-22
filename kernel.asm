@@ -25,6 +25,7 @@ start:
 
     welcome db 'Welcome to my new OS. You can write something here: ', 0dh, 0ah, 0
     goodbye db 0dh, 0ah, 'Goodbye. Hope you liked my OS!', 0
+    enter_key db 0dh, 0ah, 0
 
 print_string:              ; Routine: output string in SI to screen
     mov ah, 0Eh            ; int 10h 'print char' function
@@ -44,6 +45,8 @@ input_char:
     int 16h                ; Get one char input
     cmp al, 'q'
     je .done               ; if you input 'q', i will stop taking input
+    cmp al, 0dh            ; check if enter
+    je .print_enter
     mov ah, 0Eh
     int 10h                ; Print that char
     jmp input_char
@@ -53,5 +56,10 @@ input_char:
     call print_string
     ret
 
+.print_enter:
+    mov si, enter_key
+    call print_string 
+    call input_char
+    
     times 510-($-$$) db 0  ; Pad remainder of boot sector with 0s
     dw 0xAA55              ; The standard PC boot signature
