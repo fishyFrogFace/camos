@@ -13,30 +13,9 @@ Install Nasm to be able to assemble the project. This is needed regardless of wh
 ```
 sudo apt-get install build-essential nasm
 ```
-Navigate to the folder the bootloader is in and assemble it
-
+Run the build script
 ```
-nasm -O0 -w+orphan-labels -f bin -o bootloader.bin bootloader.asm
-```
-Assemble kernel
-
-```
-nasm -O0 -w+orphan-labels -f bin -o kernel.bin kernel.asm
-```
-Create a virtual floppy disk image
-
-```
-mkdosfs -C camos.flp 1440
-```
-Move the bootloader into the floppy drive you just created
-
-```
-dd status=noxfer conv=notrunc if=bootloader.bin of=camos.flp
-```
-Create a new folder called tmp, mount the floppy image in tmp and copy the kernel binary to the floppy image
-
-```
-mkdir tmp && sudo mount -o loop -t vfat camos.flp tmp && sudo cp kernel.bin tmp/
+./build.sh
 ```
 
 ### 1. Booting from .iso
